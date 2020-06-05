@@ -1,0 +1,12 @@
+---
+-name: Update apt cache and intalled packages
+
+tasks:
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Update all currently installed packages
+  apt:
+    name: "*"
+    state: latest
