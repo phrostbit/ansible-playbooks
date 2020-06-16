@@ -1,7 +1,7 @@
 ---
 - name: Update apt cache and intalled packages
-  hosts: localhost
-
+  hosts: all
+  
   tasks:
   - name: Update apt cache
     apt:
