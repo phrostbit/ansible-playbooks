@@ -1,6 +1,6 @@
 ---
 - name: Update apt cache and intalled packages
-  hosts: all
+#  hosts: all
   
   tasks:
   - name: Update apt cache
