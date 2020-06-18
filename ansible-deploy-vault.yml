@@ -5,9 +5,9 @@
   tasks:
   - name: Download Hashicorp Vault with SHA verification
     get_url: 
-      url: https://releases.hashicorp.com/vault/1.4.2/vault_1.4.2_darwin_amd64.zip
+      url: https://releases.hashicorp.com/vault/1.4.2/vault_1.4.2_linux_amd64.zip
       dest: /tmp/
-      checksum: sha256:30d08188fd251a4e214c3a320472ee0b27b0499522860b7061bf0e49bc5fc466
+      checksum: sha256:f2bca89cbffb8710265eb03bc9452cc316b03338c411ba8453ffe7419390b8f1
 
   - name: Install Unzip package
     apt:
@@ -17,7 +17,7 @@
 
   - name: Unzip Hashicorp Vault
     unarchive:
-      src: /tmp/vault_1.4.2_darwin_amd64.zip
+      src: /tmp/vault_1.4.2_linux_amd64.zip
       dest: /usr/local/bin/
       remote_src: yes
 
