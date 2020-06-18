@@ -25,4 +25,4 @@
     command: vault -autocomplete-install
 
   - name: Enable Hashicorp Vault command auto-completion
-    command: complete -C /usr/local/bin/vault vault
+    shell: complete -C /usr/local/bin/vault vault
