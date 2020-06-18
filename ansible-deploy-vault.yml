@@ -25,6 +25,8 @@
     command: vault -autocomplete-install
 
   - name: Enable Hashicorp Vault command auto-completion
-    command: complete -C /usr/local/bin/vault vault
-    args:
-      warn: no
+    command:
+      argv:
+        - complete -C /usr/local/bin/vault vault
+      args:
+        warn: no
