@@ -20,3 +20,9 @@
       src: /tmp/vault_1.4.2_darwin_amd64.zip
       dest: /usr/local/bin/
       remote_src: yes
+
+  - name: Enable Hashicorp Vault command auto-completion
+    command:
+      argv:
+        - vault -autocomplete-install
+        - complete -C /usr/local/bin/vault vault
