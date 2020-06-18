@@ -24,5 +24,8 @@
   - name: Enable Hashicorp Vault auto-complete install
     command: vault -autocomplete-install
 
-  - name: Enable Hashicorp Vault command auto-completion
-    raw: complete -C /usr/local/bin/vault vault
+  - name: Enable Hashicorp Vault command auto-completion in .bashrc
+    lineinfile:
+      path: /root/.bashrc
+      line: complete -C /usr/local/bin/vault vault
+      create: yes
