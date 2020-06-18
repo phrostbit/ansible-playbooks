@@ -1,0 +1,9 @@
+---
+- name: Deploy Hashicrop Vault
+  hosts: all
+
+  tasks:
+  - name: Download Hashicrop Vault with SHA verification
+    get_rul: https://releases.hashicorp.com/vault/1.4.2/vault_1.4.2_darwin_amd64.zip
+    dest: /tmp/
+    checksum: sha256:30d08188fd251a4e214c3a320472ee0b27b0499522860b7061bf0e49bc5fc466
