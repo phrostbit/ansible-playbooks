@@ -26,3 +26,4 @@
 
   - name: Enable Hashicorp Vault command auto-completion
     command: complete -C /usr/local/bin/vault vault
+      warn: no
