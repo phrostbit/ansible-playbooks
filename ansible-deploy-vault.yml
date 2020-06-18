@@ -52,5 +52,5 @@
 
   - name: Download Hashicorp Vault service configuration
     get_url: 
-      url: https://github.com/phrostbit/ansible-playbooks/blob/master/suppoting-files/vault.service
+      url: https://raw.githubusercontent.com/phrostbit/ansible-playbooks/master/suppoting-files/vault.service
       dest: /etc/systemd/system/
