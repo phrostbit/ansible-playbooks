@@ -21,10 +21,8 @@
       dest: /usr/local/bin/
       remote_src: yes
 
+  - name: Enable Hashicorp Vault auto-complete install
+    command: vault -autocomplete-install
+
   - name: Enable Hashicorp Vault command auto-completion
-    command:
-      args:
-        chdir: /usr/local/bin/
-      argv:
-        - vault -autocomplete-install
-        - complete -C /usr/local/bin/vault vault
+    command: complete -C /usr/local/bin/vault vault
