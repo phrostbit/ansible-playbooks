@@ -23,6 +23,8 @@
 
   - name: Enable Hashicorp Vault command auto-completion
     command:
+      args:
+        chdir: /usr/local/bin/
       argv:
         - vault -autocomplete-install
         - complete -C /usr/local/bin/vault vault
