@@ -39,6 +39,7 @@
       path: /etc/vault
       state: directory
       owner: vault
+      group: vault
       mode: '0755'
 
   - name: Recursively create vault directories in /var/lib/ for Hashicorp Vault
@@ -46,5 +47,6 @@
       path: /var/lib/vault/data
       state: directory
       owner: vault
+      group: vault
       mode: '0755'
 
