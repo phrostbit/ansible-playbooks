@@ -21,13 +21,9 @@
       dest: /usr/local/bin/
       remote_src: yes
 
-  - name: Gather facts for .bashrc
-    shell: cat /root/.bashrc
-    register: bashsrc_output
-
   - name: Enable Hashicorp Vault auto-complete install in .bashrc if it doesn't already exist
-    when: bashsrc_output.stdout.find('complete -C /usr/local/bin/vault vault') != -1
     command: vault -autocomplete-install
+    ignore_errors: true
 
   - name: Create vault directory in /etc/ for Hashicorp Vault
     file:
