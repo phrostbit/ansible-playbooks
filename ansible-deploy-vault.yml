@@ -27,7 +27,7 @@
 
   - name: Enable Hashicorp Vault auto-complete install in .bashrc if it doesn't already exist
     command: vault -autocomplete-install
-    when: bashsrc_output.stdout.find('complete -C /usr/local/bin/vault vault') != 1
+    when: bashsrc_output.stdout.find('complete -C /usr/local/bin/vault vault') != -1
 
   - name: Create vault directory in /etc/ for Hashicorp Vault
     file:
