@@ -29,3 +29,15 @@
       path: /root/.bashrc
       line: complete -C /usr/local/bin/vault vault
       create: yes
+
+  - name: Create vault directory in /etc/ for Hashicorp Vault
+    file:
+      path: /etc/vault
+      state: directory
+      mode: '0755'
+
+  - name: Recursively create vault directories in /var/lib/ for Hashicorp Vault
+    file:
+      path: /var/lib/vault/data
+      state: directory
+      mode: '0755'
