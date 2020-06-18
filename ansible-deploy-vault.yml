@@ -9,6 +9,12 @@
       dest: /tmp/
       checksum: sha256:30d08188fd251a4e214c3a320472ee0b27b0499522860b7061bf0e49bc5fc466
 
+  - name: Install Unzip package
+    apt:
+      name: unzip
+      state: latest
+      update_cache: yes
+
   - name: Unzip Hashicorp Vault
     unarchive:
       src: /tmp/vault_1.4.2_darwin_amd64.zip
