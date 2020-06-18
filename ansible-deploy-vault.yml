@@ -25,14 +25,26 @@
     command: vault -autocomplete-install
     ignore_errors: true
 
+  - name: Add the Vault system user
+    user:
+      name: vault
+      comment: System user account for Hashicorp Vault
+      home: /etc/vault
+      shell: /bin/false
+      system: yes
+      append: yes
+
   - name: Create vault directory in /etc/ for Hashicorp Vault
     file:
       path: /etc/vault
       state: directory
+      owner: vault
       mode: '0755'
 
   - name: Recursively create vault directories in /var/lib/ for Hashicorp Vault
     file:
       path: /var/lib/vault/data
       state: directory
+      owner: vault
       mode: '0755'
+
