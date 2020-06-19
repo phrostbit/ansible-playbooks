@@ -55,7 +55,7 @@
       url: https://raw.githubusercontent.com/phrostbit/ansible-playbooks/master/suppoting-files/vault.service
       dest: /etc/systemd/system/
 
-  - name: Download Hashicorp config.hcl configuration
+  - name: Download Hashicorp Vault config.hcl configuration
     get_url: 
       url: https://raw.githubusercontent.com/phrostbit/ansible-playbooks/master/suppoting-files/config.hcl
       dest: /etc/vault/
