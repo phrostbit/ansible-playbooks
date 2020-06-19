@@ -59,3 +59,12 @@
     get_url: 
       url: https://raw.githubusercontent.com/phrostbit/ansible-playbooks/master/suppoting-files/config.hcl
       dest: /etc/vault/
+
+  - name: Reload systemd daemon
+    systemd:
+      daemon_reload: yes
+
+  - name: Enable and start vault.service
+    systemd:
+      name: vault.service
+      enabled: yes
