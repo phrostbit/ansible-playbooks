@@ -71,4 +71,4 @@
       state: started
 
   - name: Export Hashicorp Vault URL
-    shell: "export VAULT_ADDR=http://{{ ansible_all_ipv4_addresses[1] }}:8200"
+    shell: "export VAULT_ADDR=http://{{ ansible_default_ipv4.address }}:8200"
