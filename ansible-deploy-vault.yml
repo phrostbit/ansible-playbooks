@@ -69,3 +69,6 @@
       name: vault.service
       enabled: yes
       state: started
+
+  - name: Export Hashicorp Vault URL
+    shell: export VAULT_ADDR=http://{{ ansible_facts.eth0.ipv4.address }}:8200
