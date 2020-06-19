@@ -80,3 +80,6 @@
     file:
       path: /var/lib/vault/data/*
       state: absent
+
+  - name: Initialize Hashicorp Vault and output seal and root tokens to init.file
+    shell: vault operator init > /etc/vault/init.file
