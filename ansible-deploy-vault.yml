@@ -68,3 +68,4 @@
     systemd:
       name: vault.service
       enabled: yes
+      state: started
