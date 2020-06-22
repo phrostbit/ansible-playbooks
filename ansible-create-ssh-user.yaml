@@ -1,9 +1,9 @@
 ---
-- name: Deploy Hashicorp Vault
+- name: Create Ansible user account with 2048 bit SSH key
   hosts: all
 
   tasks:
-  - name: Create Ansible user account with 2048 SSH key
+  - name: Create Ansible user account with 2048 bit SSH key
     user:
       name: ansible
       shell: /bin/bash
@@ -11,3 +11,4 @@
       generate_ssh_key: yes
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
+      ssh_key_passphrase: test123
