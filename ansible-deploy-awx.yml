@@ -1,0 +1,7 @@
+---
+
+- name: Run update and install vault playbooks
+  hosts: all
+
+  tasks:
+    - name: Update apt cache and install 
