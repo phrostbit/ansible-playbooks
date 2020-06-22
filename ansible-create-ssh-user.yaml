@@ -7,6 +7,7 @@
     user:
       name: ansible
       shell: /bin/bash
+      password: test123
       comment: Ansible SSH account
       generate_ssh_key: yes
       ssh_key_bits: 2048
