@@ -1,15 +1,10 @@
 ---
-- name: Create Ansible user account with 2048 bit SSH key
+- name: Create Ansible user account
   hosts: all
 
   tasks:
-  - name: Create Ansible user account with 2048 bit SSH key
+  - name: Create Ansible user account
     user:
       name: ansible
       shell: /bin/bash
-      password: test123
       comment: Ansible SSH account
-      generate_ssh_key: yes
-      ssh_key_bits: 2048
-      ssh_key_file: .ssh/id_rsa
-      ssh_key_passphrase: test123
