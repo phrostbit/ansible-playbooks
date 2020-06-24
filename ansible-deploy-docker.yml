@@ -1,0 +1,58 @@
+---
+- name: Deploy Docker and Docker Compose
+  hosts: all
+
+  vars:
+    docker_ce_directory: /usr/local/bin/docker-compose/ # Directory to install Docker Compose
+    docker_ce_version: 1.26.0 # https://github.com/docker/compose/releases/
+    docker_user: phrostbit # User to be added to Docker group
+    docker_container_dir: /home/phrostbit/docker # Directory where Docker containers will reside
+
+- name: Add Docker apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu xenial stable
+    state: present
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install Docker dependencies
+  apt:
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - docker-ce
+
+- name: Create Docker Compose directory
+  file:
+    path: '{{ docker_ce_directory }}'
+    state: directory
+
+- name: Download Docker Compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ docker_ce_version }}/docker-compose-Linux-x86_64
+    dest: '{{ docker_ce_directory }}'
+    mode: '0755'
+
+- name: Add user to Docker group
+  user:
+    name: '{{ docker_user }}'
+    group: docker
+    append: yes
+
+- name: Create Docker container directory
+  file:
+    path: '{{ docker_container_dir }}'
+    state: directory
+    mode: '0755'
+    owner: '{{ docker_user }}'
+    group: docker
+    recurse: yes
