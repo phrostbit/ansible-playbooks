@@ -28,6 +28,7 @@
       - software-properties-common
       - docker-ce
       update_cache: yes
+      state: latest
   
   - name: Download Docker Compose
     get_url:
