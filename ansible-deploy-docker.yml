@@ -19,9 +19,9 @@
       repo: deb https://download.docker.com/linux/ubuntu xenial stable
       state: present
   
-  - name: Update apt cache
-    apt:
-      update_cache: yes
+#  - name: Update apt cache
+#    apt:
+#      update_cache: yes
   
   - name: Install Docker dependencies
     apt:
@@ -31,6 +31,7 @@
       - curl
       - software-properties-common
       - docker-ce
+      update_cache: yes
   
   - name: Create Docker Compose directory
     file:
