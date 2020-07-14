@@ -13,7 +13,7 @@
     apt:
       update_cache: yes
   
-  - name: Install openldap-clients package
+  - name: Install ldap-utils package
     apt:
       name: ldap-utils
       state: latest
