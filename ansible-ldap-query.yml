@@ -19,6 +19,6 @@
       state: latest
 
   - name: Identify OU of current server in AD
-    shell: ldapsearch -H ldap://192.168.10.137 -x -W -D svc.ldapsync -b "{{ query_ou }}" "(cn={{ ansible_hostname }})"
+    shell: ldapsearch -H ldap://192.168.10.137 -x -W -D svc.ldapsync -b "{{ query_ou }}" "(cn=docker-test)"
       expect "Enter LDAP Password:"
       send "{{ saccount_pass }}"
