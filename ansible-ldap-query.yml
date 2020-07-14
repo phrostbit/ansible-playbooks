@@ -1,0 +1,20 @@
+---
+
+- name: Query AD for object information
+- hosts: all
+
+  vars:
+    query_ou: "dc=homefall,dc=local"
+    saccount_pass: "GETm30nth3d0m@!n"
+
+  tasks:
+
+  - name: Install openldap-clients package
+    yum:
+      name: openldap-clients
+      state: latest
+
+  - name: Identify OU of current server in AD
+    shell: ldapsearch -H ldap://192.168.10.137 -x -W -D svc.ldapsync -b "{{ query_ou }}" "(cn={{ ansible_hostname }})"
+      expect "Enter LDAP Password:"
+      send "{{ saccount_pass }}"
