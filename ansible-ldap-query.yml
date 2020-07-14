@@ -1,7 +1,7 @@
 ---
 
 - name: Query AD for object information
-- hosts: all
+  hosts: all
 
   vars:
     query_ou: "dc=homefall,dc=local"
@@ -9,8 +9,12 @@
 
   tasks:
 
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+  
   - name: Install openldap-clients package
-    yum:
+    apt:
       name: openldap-clients
       state: latest
 
